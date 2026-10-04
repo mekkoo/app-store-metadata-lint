@@ -1,0 +1,22 @@
+{
+  "name": "app-store-metadata-lint",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Offline, Unicode-aware App Store metadata checks for local and CI workflows",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/mekkoo/app-store-metadata-lint.git" },
+  "bugs": { "url": "https://github.com/mekkoo/app-store-metadata-lint/issues" },
+  "type": "module",
+  "engines": { "node": ">=24.19.0 <25" },
+  "scripts": {
+    "lint": "node src/cli.ts",
+    "test": "node --test --test-timeout=10000 test/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm test",
+    "check:publication": "node scripts/check-publication.ts",
+    "demo": "node src/cli.ts examples/valid --strict",
+    "pack:check": "npm pack --dry-run --ignore-scripts"
+  },
+  "files": ["src", "examples", "docs", "README.md", "README.ja.md", "CONTRIBUTING.md", "LICENSE"],
+  "devDependencies": { "@types/node": "24.13.3", "typescript": "5.9.3" }
+}
